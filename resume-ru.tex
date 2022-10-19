@@ -1,0 +1,55 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+\documentclass[11pt, a4paper]{awesome-cv}
+
+\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+\colorlet{awesome}{awesome-nephritis}
+\setbool{acvSectionColorHighlight}{true}
+
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+% Available options: circle|rectangle,edge/noedge,left/right
+% \photo[circle,noedge,right]{./photo.jpeg}
+\name{Борис}{Рябов}
+\position{Руководитель отдела фронтенд разработки{\enskip\cdotp\enskip}CTO}
+\address{Санкт-Петербург, Россия}
+
+% \mobile{(+82) 10-9030-1843}
+\email{rv.boris@gmail.com}
+% \dateofbirth{January 1st, 1970}
+% \homepage{www.posquit0.com}
+\github{rvboris}
+\linkedin{rvboris}
+% \gitlab{gitlab-id}
+% \stackoverflow{SO-id}{SO-name}
+% \twitter{@twit}
+% \skype{skype-id}
+% \reddit{reddit-id}
+% \medium{madium-id}
+% \kaggle{kaggle-id}
+% \googlescholar{googlescholar-id}{name-to-display}
+% \firstname and \lastname will be used
+% \googlescholar{googlescholar-id}{}
+% \extrainfo{extra information}
+
+% \quote{``Be the change that you want to see in the world."}
+
+%-------------------------------------------------------------------------------
+\begin{document}
+
+\makecvheader[C]
+
+\makecvfooter
+  {\today}
+  {Борис Рябов~~~·~~~Résumé}
+  {\thepage}
+
+%-------------------------------------------------------------------------------
+%	CV/RESUME CONTENT
+%	Each section is imported separately, open each file in turn to modify content
+%-------------------------------------------------------------------------------
+\input{resume/ru/summary.tex}
+\input{resume/ru/experience.tex}
+\input{resume/ru/education.tex}
+%-------------------------------------------------------------------------------
+\end{document}

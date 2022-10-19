@@ -1,0 +1,49 @@
+name: Build LaTeX document
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v3
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: |
+            resume-ru.tex
+            resume-en.tex
+          latexmk_use_xelatex: true
+          args: -outdir=build
+      - run: mkdir out
+      - run: cp build/*.pdf out
+      - name: Upload pdf documents
+        uses: actions/upload-artifact@v3
+        with:
+          name: resume
+          path: out
+  deploy:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    needs: [build]
+    steps:
+      - name: Variables
+        id: vars
+        run: |
+          echo "::set-output name=date::$(date +'%Y-%m-%d')"
+          echo "::set-output name=sha8::$(echo ${GITHUB_SHA} | cut -c1-8)"
+      - name: Download artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: resume
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: resume-${{ steps.vars.outputs.date }}-${{ steps.vars.outputs.sha8 }}
+          release_name: My Actions document (version ${{ steps.vars.outputs.date }})
+          draft: false
+          prerelease: false
+          files: |
+            resume-ru.pdf
+            resume-en.pdf
