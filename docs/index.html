@@ -26,15 +26,34 @@
   <style>
     :root {
       --green: #27ae60;        /* brand accent — matches the résumé PDF */
-      --green-ink: #157c43;    /* AA-safe green for text on light bg (5.2:1) */
+      --green-ink: #0f6136;    /* 4.8:1 over worst-case dye under 0.60 glass */
       --green-soft: rgba(39, 174, 96, 0.12);
       --bg: #f6f7f5;
-      --surface: rgba(255, 255, 255, 0.86);   /* frosted glass over the fluid */
       --ink: #161a17;
-      --muted: #5c645e;        /* ≥4.6:1 even over worst-case dye under the frost */
+      --muted: #525a54;        /* 4.8:1 over worst-case dye under 0.60 glass */
       --hairline: #e4e7e3;
-      --shadow: 0 24px 60px -28px rgba(22, 42, 30, 0.28);
       --btn-ink: #08120b;      /* near-black on brand green — 6.6:1 */
+      /* ---- glass pane ---- */
+      --glass-tint: linear-gradient(to bottom,
+        rgba(255, 255, 255, 0.66), rgba(255, 255, 255, 0.60) 30%,
+        rgba(255, 255, 255, 0.60) 70%, rgba(255, 255, 255, 0.66));
+      --glass-filter: blur(22px) saturate(1.8) brightness(1.06);
+      --rim: linear-gradient(165deg,
+        rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.18) 28%,
+        rgba(255, 255, 255, 0.04) 55%, rgba(255, 255, 255, 0.32));
+      --sheen: linear-gradient(115deg,
+        rgba(255, 255, 255, 0.30), rgba(255, 255, 255, 0.07) 28%, transparent 55%);
+      --glass-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.55),
+        inset 0 1px 1px rgba(255, 255, 255, 0.25),
+        inset 0 14px 30px -18px rgba(255, 255, 255, 0.45),
+        0 36px 70px -34px rgba(22, 42, 30, 0.40),
+        0 6px 18px -10px rgba(22, 42, 30, 0.22);
+      --lang-surface: rgba(255, 255, 255, 0.62);
+      --glass-border: rgba(255, 255, 255, 0.45);
+      --lang-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+        0 10px 28px -16px rgba(22, 42, 30, 0.35);
     }
 
     @media (prefers-color-scheme: dark) {
@@ -42,11 +61,29 @@
         --green-ink: #4ecf87;  /* AA-safe on dark bg */
         --green-soft: rgba(39, 174, 96, 0.16);
         --bg: #0d100e;
-        --surface: rgba(21, 26, 22, 0.8);
         --ink: #ecefee;
-        --muted: #a8b1aa;      /* ≥5:1 over worst-case luminous dye under frost */
+        --muted: #a8b1aa;      /* 5.1:1 over worst-case glow under 0.48 glass */
         --hairline: #262c27;
-        --shadow: 0 24px 60px -28px rgba(0, 0, 0, 0.7);
+        /* dark glass: deeper tint, dimmed backdrop, brighter rim line */
+        --glass-tint: linear-gradient(to bottom,
+          rgba(23, 29, 24, 0.56), rgba(21, 26, 22, 0.48) 30%,
+          rgba(21, 26, 22, 0.48) 70%, rgba(23, 29, 24, 0.56));
+        --glass-filter: blur(26px) saturate(1.65) brightness(0.85);
+        --rim: linear-gradient(165deg,
+          rgba(255, 255, 255, 0.50), rgba(255, 255, 255, 0.08) 35%,
+          rgba(255, 255, 255, 0.02) 60%, rgba(255, 255, 255, 0.22));
+        --sheen: linear-gradient(115deg,
+          rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04) 30%, transparent 60%);
+        --glass-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.16),
+          inset 0 16px 34px -20px rgba(255, 255, 255, 0.10),
+          0 36px 70px -34px rgba(0, 0, 0, 0.85),
+          0 6px 18px -10px rgba(0, 0, 0, 0.55);
+        --lang-surface: rgba(21, 26, 22, 0.52);
+        --glass-border: rgba(255, 255, 255, 0.14);
+        --lang-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.15),
+          0 10px 28px -16px rgba(0, 0, 0, 0.6);
       }
     }
 
@@ -89,7 +126,7 @@
       pointer-events: none;
     }
 
-    /* language pill-switch */
+    /* language pill-switch — same glass family */
     .lang {
       position: fixed;
       top: clamp(14px, 3vw, 26px);
@@ -99,11 +136,11 @@
       gap: 2px;
       padding: 3px;
       border-radius: 999px;
-      background: var(--surface);
-      border: 1px solid var(--hairline);
-      box-shadow: 0 10px 28px -16px rgba(22, 42, 30, 0.35);
-      -webkit-backdrop-filter: blur(18px) saturate(1.35);
-      backdrop-filter: blur(18px) saturate(1.35);
+      background: var(--lang-surface);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--lang-shadow);
+      -webkit-backdrop-filter: var(--glass-filter);
+      backdrop-filter: var(--glass-filter);
     }
 
     .lang button {
@@ -135,19 +172,55 @@
       gap: clamp(28px, 5vw, 56px);
       align-items: center;
       padding: clamp(28px, 5vw, 56px);
-      background: var(--surface);
-      border: 1px solid var(--hairline);
+      background: var(--glass-tint);
+      border: 1px solid var(--glass-border);  /* replaced by the rim when masks work */
       border-radius: 24px;
-      box-shadow: var(--shadow);
-      -webkit-backdrop-filter: blur(18px) saturate(1.35);
-      backdrop-filter: blur(18px) saturate(1.35);
+      box-shadow: var(--glass-shadow);
+      -webkit-backdrop-filter: var(--glass-filter);
+      backdrop-filter: var(--glass-filter);
+    }
+
+    /* diagonal sheen wash — under the content, over the backdrop */
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: var(--sheen);
+      pointer-events: none;
+    }
+
+    /* 1px gradient rim: bright catch-light top, dim bottom (Fresnel edge) */
+    @supports ((mask-composite: exclude) or (-webkit-mask-composite: xor)) {
+      .card { border-color: transparent; }
+      .card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        padding: 1px;
+        background: var(--rim);
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        mask-composite: exclude;
+        pointer-events: none;
+      }
     }
 
     /* no backdrop-filter support → solid surface, contrast preserved */
     @supports not ((backdrop-filter: blur(4px)) or (-webkit-backdrop-filter: blur(4px))) {
-      .card, .lang { background: #ffffff; }
+      .card, .lang {
+        background: #ffffff;
+        border-color: var(--hairline);
+        box-shadow: 0 24px 60px -28px rgba(22, 42, 30, 0.28);
+      }
+      .card::before { display: none; }
       @media (prefers-color-scheme: dark) {
-        .card, .lang { background: #151a16; }
+        .card, .lang {
+          background: #151a16;
+          box-shadow: 0 24px 60px -28px rgba(0, 0, 0, 0.7);
+        }
       }
     }
 
