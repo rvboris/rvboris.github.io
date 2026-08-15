@@ -589,13 +589,13 @@
       const config = {
         SIM_RES: finePointer ? 128 : 96,
         DYE_RES: finePointer ? 1024 : 512,
-        DENSITY_DISSIPATION: 1.6,   /* dye fade per second */
-        VELOCITY_DISSIPATION: 0.3,
+DENSITY_DISSIPATION: 2.2,   /* dye fade per second */
+VELOCITY_DISSIPATION: 0.4,
         PRESSURE: 0.82,
         PRESSURE_ITERATIONS: 28,
         CURL: 26,                   /* vorticity confinement strength */
-        SPLAT_RADIUS: 0.23,
-        SPLAT_FORCE: 5600
+SPLAT_RADIUS: 0.28,
+SPLAT_FORCE: 3000
       };
 
       /* adaptive quality ladders — degrade only, oldest first (see monitor) */
@@ -644,12 +644,12 @@
           h = 0.36 + Math.random() * 0.13;      /* mint → teal → lime */
           s = 0.72 + Math.random() * 0.26;
           v = 1.0;
-          gain = 0.16 * scale;                  /* additive glow needs low gain */
+          gain = 0.12 * scale;                  /* additive glow needs low gain */
         } else {
           h = 0.29 + Math.random() * 0.18;      /* deep forest → emerald → lime */
           s = 0.6 + Math.random() * 0.32;
           v = 0.82 + Math.random() * 0.18;
-          gain = 0.42 * scale;                  /* ink-like wash on light bg */
+          gain = 0.32 * scale;                  /* ink-like wash on light bg */
         }
         const c = HSVtoRGB(h, s, v);
         return { r: c.r * gain, g: c.g * gain, b: c.b * gain };
@@ -1143,7 +1143,7 @@
         const n = toNorm(e);
         p.prevX = p.x = n.x;
         p.prevY = p.y = n.y;
-        p.color = generateColor(1);
+        p.color = generateColor(0.35);
         p.moved = false;
         burst(n.x, n.y);
       }, { passive: true });
@@ -1169,7 +1169,8 @@
         pointers.forEach((p) => {
           if (!p.moved) return;
           p.moved = false;
-          splat(p.x, p.y,
+          splat(p.x + (Math.random() - 0.5) * 0.08,
+            p.y + (Math.random() - 0.5) * 0.08,
             correctDeltaX(p.deltaX) * config.SPLAT_FORCE,
             correctDeltaY(p.deltaY) * config.SPLAT_FORCE,
             p.color);
@@ -1277,7 +1278,7 @@
           accent[0], accent[1], accent[2]);
         gl.uniform1f(displayProgram.uniforms.uDark, themeDark.matches ? 1 : 0);
         gl.uniform1f(displayProgram.uniforms.uShade, themeDark.matches ? 1 : 0.35);
-        gl.uniform1f(displayProgram.uniforms.uInkDepth, 0.5);
+        gl.uniform1f(displayProgram.uniforms.uInkDepth, 0.42);
         blit(null);
       }
 
@@ -1330,7 +1331,7 @@
 
         applyInputs();
         idleSplats(now);
-        step(Math.min(dtMs / 1000, 0.016666));
+        step(Math.min(dtMs / 1000, 0.016666) * 0.6);  /* slow-motion: calmer drift */
         render();
 
         /* adaptive quality: sustained >23ms → drop Jacobi iters, then dye res */
