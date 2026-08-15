@@ -1,5 +1,13 @@
 # Personal page
 
-It uses [LaTeX](https://www.latex-project.org/), so you need to install it before.
+Resume built with [RenderCV](https://rendercv.com) — content in YAML, PDF via Typst.
 
-To compile just use command `latexmk -xelatex resume` or run Github Action.
+To compile locally:
+
+```bash
+pip install "rendercv[full]"
+rendercv render resume-ru.yaml
+rendercv render resume-en.yaml
+```
+
+Or run the GitHub Action, which builds both PDFs and publishes them as a release.

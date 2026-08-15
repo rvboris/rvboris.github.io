@@ -1,0 +1,136 @@
+cv:
+  name: Boris Ryabov
+  headline: Frontend Teamlead · CTO
+  location: Saint-Petersburg, Russia
+  email: rv.boris@gmail.com
+  social_networks:
+    - network: GitHub
+      username: rvboris
+    - network: LinkedIn
+      username: rvboris
+  sections:
+    Summary:
+      - I have worked in the IT industry for over 12 years, advancing from a developer to the head of a department (50 people).
+      - Establishing development processes, coordinating work on complex projects, reducing technical debt, communication between business and development, assessing and eliminating risks.
+    Experience:
+      - company: YooMoney (ex Yandex.Money)
+        position: Head of frontend department
+        start_date: 2021-09
+        end_date: present
+        location: Saint-Petersburg, Russia
+        highlights:
+          - "#v(0.5em) **Tasks:**"
+          - Coordination of work on large-scale projects, control of execution
+          - Assuring the recruitment process, search, and hiring of employees
+          - Work with employees, motivation, personal review culture
+          - Enhancement of development processes
+          - Formation of teams, rotation of employees, work with more than 15 teams
+          - Building communication between teams, exchange of knowledge and experience
+          - Assessed potential risks, including technological, budgetary, and staff-related resources
+          - "#v(0.5em) **Achievements:**"
+          - Created the unified documentation of the department
+          - Reduced and aligned the T2M metrics of teams
+          - Oversaw work to refactor legacy platform between business teams
+          - Organized the process of constant work on eliminating vulnerabilities
+          - Sped up the recruitment process and the quality of employee selection
+          - Formed a set of competencies and labor functions for each position
+          - Built the process of adaptation for newbies
+      - company: YooMoney (ex Yandex.Money)
+        position: Lead developer
+        start_date: 2020-10
+        end_date: 2021-09
+        location: Saint-Petersburg, Russia
+        highlights:
+          - "#v(0.5em) **Tasks:**"
+          - Development of business functionality in the product team
+          - Performing refactoring and code optimization
+          - Urgent analysis and correction of errors
+          - Performing a code review inside and outside the team
+          - Performing personal review for team members
+          - Performing technical interview for candidates
+          - "#v(0.5em) **Achievements:**"
+          - Initiated and performed refactoring the business process of money transfers to new technical stack
+          - Led the creation of a product for the self-employed from scratch
+          - Developed a technical debt work plan, adjusted the team's process for dealing with it
+          - "#v(0.5em) **Stack:** nodejs, nest.js, react, redux, styled-components, jest"
+      - company: Yandex.Money
+        position: Senior developer
+        start_date: 2018-07
+        end_date: 2020-10
+        location: Saint-Petersburg, Russia
+        highlights:
+          - "#v(0.5em) **Tasks:**"
+          - Development of business functionality in B2C direction — money transfers
+          - Performing refactoring and code optimization
+          - Performing code review within and outside the team
+          - Onboarding of newbies
+          - "#v(0.5em) **Achievements:**"
+          - Rewrote one of the high-loaded business processes from xscript to nodejs (70+ RPS)
+          - Rewrote significant part of code base to TypeScript
+          - Developed recommendations for evaluating tasks in the team
+      - company: Yandex.Money
+        position: Frontend developer
+        start_date: 2015-10
+        end_date: 2018-07
+        location: Saint-Petersburg, Russia
+        highlights:
+          - Development of business functionality in B2C direction — bank cards
+          - Dealing with legacy code (xscript, xslt, xml), transition to nodejs
+      - company: E-Citrus
+        position: Lead frontend developer
+        start_date: 2014-05
+        end_date: 2015-10
+        location: Saint-Petersburg, Russia
+        highlights:
+          - "#v(0.5em) **Tasks:**"
+          - Development of a desktop application on node-webkit technology
+          - Development of a post-processing server video on nodejs
+          - Optimization of interfaces for POS terminals
+          - Selection and conduct of tech interviews with employees in the team
+          - Creation of documentation and technical regulations
+          - "#v(0.5em) **Achievements:**"
+          - Developed modules to control step motor and LED panels
+          - Created a modular system for connecting devices and a protocol for their interaction via WebSockets
+          - Developed a platform of automated video and photo shooting on Canon cameras
+          - "#v(0.5em) **Stack:** nodejs, С#, C++, FTDI, DMX512, websockets, angular"
+      - company: E-Citrus
+        position: Frontend developer
+        start_date: 2012-09
+        end_date: 2014-05
+        location: Saint-Petersburg, Russia
+        highlights:
+          - "#v(0.5em) **Tasks:**"
+          - Development and support website of the virtual fitting room
+          - Development of embedded solutions (js-widgets)
+          - Development and support of social applications (Facebook, VK)
+          - "#v(0.5em) **Achievements:**"
+          - Rewrote the client part of the virtual fitting room website in 2 months to SPA app with Angular
+      - company: University ENGECON
+        position: Developer
+        start_date: 2009-08
+        end_date: 2012-09
+        location: Saint-Petersburg, Russia
+        highlights:
+          - Modification and support of CMS Moodle
+          - Development of an application for the provision of electronic textbooks (C#)
+          - Automation of the process of creating electronic textbooks (Autoit)
+    Education:
+      - institution: Saint-Petersburg State University of Aerospace Instrumentation
+        area: Computer software and automated systems
+        degree: College
+        start_date: 2005-09
+        end_date: 2009-06
+        location: Saint-Petersburg, Russia
+
+design:
+  theme: engineeringresumes
+  page:
+    size: a4
+  colors:
+    name: rgb(0, 0, 0)
+    headline: rgb(39, 174, 96)
+    connections: rgb(39, 174, 96)
+    section_titles: rgb(0, 0, 0)
+    links: rgb(39, 174, 96)
+  templates:
+    footer: "Boris Ryabov · Résumé · PAGE_NUMBER/TOTAL_PAGES"
