@@ -19,10 +19,26 @@ cv:
         end_date: present
         location: Saint-Petersburg, Russia
         highlights:
+          - "#v(0.5em) **Tasks:**"
+          - Coordinated work on large-scale projects and oversaw delivery
+          - Built teams, managed rotations, and worked with more than 15 teams
+          - Improved and optimized development processes
+          - Developed employees, motivation, and a review culture
+          - Managed recruitment, sourcing, and onboarding
+          - Built cross-team communication and knowledge sharing
+          - Assessed and mitigated technical and staffing risks
+          - "#v(0.5em) **Achievements:**"
+          - Created and documented unified department standards
+          - Aligned T2M metrics across teams
+          - Coordinated monolith refactoring across business teams
+          - Established continuous vulnerability remediation
+          - Improved hiring speed and candidate selection quality
+          - Defined competencies and responsibilities for each role
+          - Built a department onboarding process
           - Reduced the 90th-percentile T2M to 3.62 days; build, review, and release times measured 1.01, 0.76, and 0.24 days.
           - Improved the ESLint Healthcheck score from 2.62 to 3.47.
           - Improved Node.js service stability during DDoS attacks through autoscaling and migrated the platform to Kubernetes.
-          - Strengthened SSDLC by making SonarQube affect merge decisions, adding dependency checks, piloting CodeQL and Semgrep, and completing OWASP training with the team.
+          - "Strengthened SSDLC by making SonarQube affect merge decisions, adding dependency checks, piloting CodeQL and Semgrep, and completing OWASP training with the team."
           - Hired four developers, strengthening the team and selection process.
           - Defined the goals, operating model, and roadmap for F-Platform.
           - Completed a 2026 OpenCode pilot for AI-assisted development and documented its results for future use.
