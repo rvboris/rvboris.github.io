@@ -10,8 +10,8 @@ cv:
       username: rvboris
   sections:
     Summary:
-      - I have worked in the IT industry for over 12 years, advancing from a developer to the head of a department (50 people).
-      - Establishing development processes, coordinating work on complex projects, reducing technical debt, communication between business and development, assessing and eliminating risks.
+      - Over 15 years in IT, progressing from developer to department head and managing teams of up to 50 people.
+      - Establish development processes, coordinate complex projects, reduce technical debt, align business and engineering, and assess and mitigate risks.
     Experience:
       - company: YooMoney (ex Yandex.Money)
         position: Head of frontend department
@@ -19,22 +19,13 @@ cv:
         end_date: present
         location: Saint-Petersburg, Russia
         highlights:
-          - "#v(0.5em) **Tasks:**"
-          - Coordination of work on large-scale projects, control of execution
-          - Assuring the recruitment process, search, and hiring of employees
-          - Work with employees, motivation, personal review culture
-          - Enhancement of development processes
-          - Formation of teams, rotation of employees, work with more than 15 teams
-          - Building communication between teams, exchange of knowledge and experience
-          - Assessed potential risks, including technological, budgetary, and staff-related resources
-          - "#v(0.5em) **Achievements:**"
-          - Created the unified documentation of the department
-          - Reduced and aligned the T2M metrics of teams
-          - Oversaw work to refactor legacy platform between business teams
-          - Organized the process of constant work on eliminating vulnerabilities
-          - Sped up the recruitment process and the quality of employee selection
-          - Formed a set of competencies and labor functions for each position
-          - Built the process of adaptation for newbies
+          - Reduced the 90th-percentile T2M to 3.62 days; build, review, and release times measured 1.01, 0.76, and 0.24 days.
+          - Improved the ESLint Healthcheck score from 2.62 to 3.47.
+          - Improved Node.js service stability during DDoS attacks through autoscaling and migrated the platform to Kubernetes.
+          - Strengthened SSDLC by making SonarQube affect merge decisions, adding dependency checks, piloting CodeQL and Semgrep, and completing OWASP training with the team.
+          - Hired four developers, strengthening the team and selection process.
+          - Defined the goals, operating model, and roadmap for F-Platform.
+          - Completed a 2026 OpenCode pilot for AI-assisted development and documented its results for future use.
       - company: YooMoney (ex Yandex.Money)
         position: Lead developer
         start_date: 2020-10
