@@ -19,29 +19,19 @@ cv:
         end_date: present
         location: Saint-Petersburg, Russia
         highlights:
-          - "#v(0.5em) **Tasks:**"
-          - Coordinated work on large-scale projects and oversaw delivery
-          - Built teams, managed rotations, and worked with more than 15 teams
-          - Improved and optimized development processes
-          - Developed employees, motivation, and a review culture
-          - Managed recruitment, sourcing, and onboarding
-          - Built cross-team communication and knowledge sharing
-          - Assessed and mitigated technical and staffing risks
-          - "#v(0.5em) **Achievements:**"
-          - Created and documented unified department standards
-          - Aligned T2M metrics across teams
-          - Coordinated monolith refactoring across business teams
-          - Established continuous vulnerability remediation
-          - Improved hiring speed and candidate selection quality
-          - Defined competencies and responsibilities for each role
-          - Built a department onboarding process
-          - Reduced the 90th-percentile T2M to 3.62 days; build, review, and release times measured 1.01, 0.76, and 0.24 days.
-          - Improved the ESLint Healthcheck score from 2.62 to 3.47.
-          - Improved Node.js service stability during DDoS attacks through autoscaling and migrated the platform to Kubernetes.
-          - "Strengthened SSDLC by making SonarQube affect merge decisions, adding dependency checks, piloting CodeQL and Semgrep, and completing OWASP training with the team."
-          - Hired four developers, strengthening the team and selection process.
-          - Defined the goals, operating model, and roadmap for F-Platform.
-          - Completed a 2026 OpenCode pilot for AI-assisted development and documented its results for future use.
+          - "#v(0.5em) **Scope and expertise:**"
+          - "Strategy, architecture, roadmaps, resources, and risks across 15+ product and platform teams."
+          - "F-Platform, design system, full-stack platform APIs, Node.js, React, CI, and internal tooling."
+          - "Delivery metrics, technical debt, documentation, and the lifecycle of code, tests, and dependencies."
+          - "Kubernetes, performance, observability, load resilience, SSDLC, and software supply-chain security."
+          - "People organization: competencies, career paths, performance reviews, onboarding, and cross-functional alignment."
+          - "#v(0.5em) **Key results:**"
+          - "Delivery operating model: 90th-percentile T2M of 3.62 days; build, review, and release at 1.01, 0.76, and 0.24 days; unified documentation and CI HealthCheck."
+          - "Defined the F-Platform scope, goals, and roadmap."
+          - "Shaped a modernization program covering legacy audits, component extraction plans, Kubernetes, GitHub Flow, SSR, and dependency management."
+          - "Layered quality and security: SonarQube influence on merge decisions, dependency checks, CodeQL and Semgrep pilots, CSP and OWASP; ESLint Healthcheck improved from 2.62 to 3.47."
+          - "Improved service resilience and observability for DDoS and cascading restarts through autoscaling, bundle budgets, and Web Vitals/LCP."
+          - "Increased organizational maturity through competencies, career paths, roles, reviews, onboarding, and talent reallocation; advanced AI practices with OpenCode, LiteLLM, agents, and skills."
       - company: YooMoney (ex Yandex.Money)
         position: Lead developer
         start_date: 2020-10
