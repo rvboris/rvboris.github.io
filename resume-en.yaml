@@ -10,11 +10,15 @@ cv:
       username: rvboris
   sections:
     Summary:
-      - Over 15 years in IT, progressing from developer to department head and managing teams of up to 50 people.
-      - Establish development processes, coordinate complex projects, reduce technical debt, align business and engineering, and assess and mitigate risks.
+      - "Frontend and platform engineering leader with 15+ years of experience, progressing from developer to department head and managing teams of up to 50 people."
+      - "Shape strategy, architecture, and delivery for products and platforms across 15+ teams; build engineering organizations, reliability, and business–engineering alignment."
+    Skills:
+      - "Leadership: strategy and roadmaps, team development, career paths, performance reviews, cross-functional alignment."
+      - "Platform and architecture: frontend platforms, design systems, Node.js, React, APIs, Kubernetes, CI/CD."
+      - "Quality and reliability: T2M and engineering metrics, technical debt, SSDLC, supply-chain security, observability, and performance."
     Experience:
       - company: YooMoney (ex Yandex.Money)
-        position: Head of frontend department
+        position: Head of Frontend Engineering
         start_date: 2021-09
         end_date: present
         location: Saint-Petersburg, Russia
@@ -26,45 +30,26 @@ cv:
           - "Kubernetes, performance, observability, load resilience, SSDLC, and software supply-chain security."
           - "People organization: competencies, career paths, performance reviews, onboarding, and cross-functional alignment."
           - "#v(0.5em) **Key results:**"
-          - "Delivery operating model: 90th-percentile T2M of 3.62 days; build, review, and release at 1.01, 0.76, and 0.24 days; unified documentation and CI HealthCheck."
-          - "Defined the F-Platform scope, goals, and roadmap."
-          - "Shaped a modernization program covering legacy audits, component extraction plans, Kubernetes, GitHub Flow, SSR, and dependency management."
-          - "Layered quality and security: SonarQube influence on merge decisions, dependency checks, CodeQL and Semgrep pilots, CSP and OWASP; ESLint Healthcheck improved from 2.62 to 3.47."
-          - "Improved service resilience and observability for DDoS and cascading restarts through autoscaling, bundle budgets, and Web Vitals/LCP."
-          - "Increased organizational maturity through competencies, career paths, roles, reviews, onboarding, and talent reallocation; advanced AI practices with OpenCode, LiteLLM, agents, and skills."
+          - "Built a delivery operating model with unified documentation and CI HealthCheck: 90th-percentile T2M reached 3.62 days; build, review, and release took 1.01, 0.76, and 0.24 days."
+          - "Defined the F-Platform scope, goals, and roadmap, aligning platform initiatives with product-team needs."
+          - "Shaped a modernization program from legacy audits: component extraction plans, Kubernetes migration, GitHub Flow, SSR, and dependency management."
+          - "Implemented layered quality and security practices: SonarQube influence on merge decisions, dependency control, CodeQL and Semgrep pilots, CSP, and OWASP; ESLint Healthcheck improved from 2.62 to 3.47."
+          - "Resolved DDoS and cascading restart incidents through autoscaling and Kubernetes; strengthened observability and performance with bundle budgets, Web Vitals, and LCP."
+          - "Advanced organizational practices through competencies, career paths, roles, reviews, onboarding, and talent reallocation; established a department AI harness with a corporate shared LLM gateway, secure-use governance, employee training, and reusable OpenCode/LiteLLM skills—regular AI use reached 30% of the department within three months."
       - company: YooMoney (ex Yandex.Money)
         position: Lead developer
         start_date: 2020-10
         end_date: 2021-09
         location: Saint-Petersburg, Russia
         highlights:
-          - "#v(0.5em) **Tasks:**"
-          - Development of business functionality in the product team
-          - Performing refactoring and code optimization
-          - Urgent analysis and correction of errors
-          - Performing a code review inside and outside the team
-          - Performing personal review for team members
-          - Performing technical interview for candidates
-          - "#v(0.5em) **Achievements:**"
-          - Initiated and performed refactoring the business process of money transfers to new technical stack
-          - Led the creation of a product for the self-employed from scratch
-          - Developed a technical debt work plan, adjusted the team's process for dealing with it
-          - "#v(0.5em) **Stack:** nodejs, nest.js, react, redux, styled-components, jest"
+          - Initiated the migration of the money-transfer process to a new technology stack, helped launch a self-employed product, and established technical-debt practices.
       - company: Yandex.Money
         position: Senior developer
         start_date: 2018-07
         end_date: 2020-10
         location: Saint-Petersburg, Russia
         highlights:
-          - "#v(0.5em) **Tasks:**"
-          - Development of business functionality in B2C direction — money transfers
-          - Performing refactoring and code optimization
-          - Performing code review within and outside the team
-          - Onboarding of newbies
-          - "#v(0.5em) **Achievements:**"
-          - Rewrote one of the high-loaded business processes from xscript to nodejs (70+ RPS)
-          - Rewrote significant part of code base to TypeScript
-          - Developed recommendations for evaluating tasks in the team
+          - Rewrote a high-throughput money-transfer process from xscript to Node.js at 4,000 RPM (~67 RPS) and migrated a significant part of the codebase to TypeScript.
       - company: Yandex.Money
         position: Frontend developer
         start_date: 2015-10
@@ -79,17 +64,7 @@ cv:
         end_date: 2015-10
         location: Saint-Petersburg, Russia
         highlights:
-          - "#v(0.5em) **Tasks:**"
-          - Development of a desktop application on node-webkit technology
-          - Development of a post-processing server video on nodejs
-          - Optimization of interfaces for POS terminals
-          - Selection and conduct of tech interviews with employees in the team
-          - Creation of documentation and technical regulations
-          - "#v(0.5em) **Achievements:**"
-          - Developed modules to control step motor and LED panels
-          - Created a modular system for connecting devices and a protocol for their interaction via WebSockets
-          - Developed a platform of automated video and photo shooting on Canon cameras
-          - "#v(0.5em) **Stack:** nodejs, С#, C++, FTDI, DMX512, websockets, angular"
+          - Built a modular device-integration system over WebSockets and an automated Canon photo/video capture platform.
       - company: E-Citrus
         position: Frontend developer
         start_date: 2012-09
