@@ -11,11 +11,12 @@ cv:
   sections:
     Summary:
       - "Frontend and platform engineering leader with 15+ years of experience, progressing from developer to department head and managing teams of up to 50 people."
-      - "Shape strategy, architecture, and delivery for products and platforms across 15+ teams; build engineering organizations, reliability, and business–engineering alignment."
+      - "Lead AI transformation within the frontend department. Shape strategy, architecture, and delivery with 15+ teams; develop people, reliability, and business–engineering alignment."
     Skills:
       - "Leadership: strategy and roadmaps, team development, career paths, performance reviews, cross-functional alignment."
       - "Platform and architecture: frontend platforms, design systems, Node.js, React, APIs, Kubernetes, CI/CD."
       - "Quality and reliability: T2M and engineering metrics, technical debt, SSDLC, supply-chain security, observability, and performance."
+      - "AI adoption: AI-assisted workflows, shared agent harness, LLM gateway, operating/security guidelines, training."
     Experience:
       - company: YooMoney (ex Yandex.Money)
         position: Head of Frontend Engineering
@@ -24,18 +25,20 @@ cv:
         location: Saint-Petersburg, Russia
         highlights:
           - "#v(0.5em) **Scope and expertise:**"
-          - "Strategy, architecture, roadmaps, resources, and risks across 15+ product and platform teams."
+          - "Strategy, architecture, roadmaps, resources, and risks in collaboration with 15+ product and platform teams."
           - "F-Platform, design system, full-stack platform APIs, Node.js, React, CI, and internal tooling."
           - "Delivery metrics, technical debt, documentation, and the lifecycle of code, tests, and dependencies."
           - "Kubernetes, performance, observability, load resilience, SSDLC, and software supply-chain security."
           - "People organization: competencies, career paths, performance reviews, onboarding, and cross-functional alignment."
+          - "Made hiring and dismissal decisions; adjusted department headcount and balanced workloads to meet engineering needs."
           - "#v(0.5em) **Key results:**"
-          - "Built a delivery operating model with unified documentation and CI HealthCheck: 90th-percentile T2M reached 3.62 days; build, review, and release took 1.01, 0.76, and 0.24 days."
-          - "Defined the F-Platform scope, goals, and roadmap, aligning platform initiatives with product-team needs."
-          - "Shaped a modernization program from legacy audits: component extraction plans, Kubernetes migration, GitHub Flow, SSR, and dependency management."
-          - "Implemented layered quality and security practices: SonarQube influence on merge decisions, dependency control, CodeQL and Semgrep pilots, CSP, and OWASP; ESLint Healthcheck improved from 2.62 to 3.47."
-          - "Resolved DDoS and cascading restart incidents through autoscaling and Kubernetes; strengthened observability and performance with bundle budgets, Web Vitals, and LCP."
-          - "Advanced organizational practices through competencies, career paths, roles, reviews, onboarding, and talent reallocation; established a department AI harness with a corporate shared LLM gateway, secure-use governance, employee training, and reusable OpenCode/LiteLLM skills—regular AI use reached 30% of the department within three months."
+          - "Established a shared agent harness across the department and wider division, with common working/security guidelines and employee training. Within three months, 30% of the department’s tasks were being carried out with AI assistance."
+          - "Coordinated rollout of a shared corporate LLM gateway and standardized tooling: OpenCode, LiteLLM, common agent instructions, and reusable skills."
+          - "Established delivery management through engineering metrics, shared documentation and CI standards, and bottleneck identification and resolution."
+          - "Aligned F-Platform scope, goals, and roadmap with product-team needs. Shaped a modernization program from legacy audits: component extraction plans, Kubernetes migration, GitHub Flow, SSR, and dependency management."
+          - "Implemented quality and security practices: SonarQube-informed merge decisions, dependency control, CodeQL and Semgrep pilots, CSP, and OWASP training."
+          - "Coordinated the resolution of cascading restarts under DDoS load and improvements to service performance monitoring."
+          - "Developed competencies, career paths, roles, reviews, onboarding, and cross-team talent allocation. Managed new departmental working arrangements and mitigated risks of employees working abroad."
       - company: YooMoney (ex Yandex.Money)
         position: Lead developer
         start_date: 2020-10
