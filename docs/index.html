@@ -33,57 +33,30 @@
       --muted: #525a54;        /* 4.8:1 over worst-case dye under 0.60 glass */
       --hairline: #e4e7e3;
       --btn-ink: #08120b;      /* near-black on brand green — 6.6:1 */
-      /* ---- glass pane ---- */
-      --glass-tint: linear-gradient(to bottom,
-        rgba(255, 255, 255, 0.66), rgba(255, 255, 255, 0.60) 30%,
-        rgba(255, 255, 255, 0.60) 70%, rgba(255, 255, 255, 0.66));
-      --glass-filter: blur(22px) saturate(1.8) brightness(1.06);
-      --rim: linear-gradient(165deg,
-        rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.18) 28%,
-        rgba(255, 255, 255, 0.04) 55%, rgba(255, 255, 255, 0.32));
-      --sheen: linear-gradient(115deg,
-        rgba(255, 255, 255, 0.30), rgba(255, 255, 255, 0.07) 28%, transparent 55%);
-      --glass-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.55),
-        inset 0 1px 1px rgba(255, 255, 255, 0.25),
-        inset 0 14px 30px -18px rgba(255, 255, 255, 0.45),
-        0 36px 70px -34px rgba(22, 42, 30, 0.40),
-        0 6px 18px -10px rgba(22, 42, 30, 0.22);
-      --lang-surface: rgba(255, 255, 255, 0.62);
-      --glass-border: rgba(255, 255, 255, 0.45);
-      --lang-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.5),
-        0 10px 28px -16px rgba(22, 42, 30, 0.35);
+      --surface: #fcfaf4;
+      --edge: #58657c;
+      --offset: #c9d3e5;
+      --blue: #355b9a;
+      --blue-soft: #e9eff9;
+      --warm: #b76b32;
+      --warm-soft: #f4e6d4;
     }
 
     @media (prefers-color-scheme: dark) {
       :root {
-        --green-ink: #4ecf87;  /* AA-safe on dark bg */
+        --green-ink: #65d594;
         --green-soft: rgba(39, 174, 96, 0.16);
         --bg: #0d100e;
         --ink: #ecefee;
-        --muted: #a8b1aa;      /* 5.1:1 over worst-case glow under 0.48 glass */
-        --hairline: #262c27;
-        /* dark glass: deeper tint, dimmed backdrop, brighter rim line */
-        --glass-tint: linear-gradient(to bottom,
-          rgba(23, 29, 24, 0.56), rgba(21, 26, 22, 0.48) 30%,
-          rgba(21, 26, 22, 0.48) 70%, rgba(23, 29, 24, 0.56));
-        --glass-filter: blur(26px) saturate(1.65) brightness(0.85);
-        --rim: linear-gradient(165deg,
-          rgba(255, 255, 255, 0.50), rgba(255, 255, 255, 0.08) 35%,
-          rgba(255, 255, 255, 0.02) 60%, rgba(255, 255, 255, 0.22));
-        --sheen: linear-gradient(115deg,
-          rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04) 30%, transparent 60%);
-        --glass-shadow:
-          inset 0 1px 0 rgba(255, 255, 255, 0.16),
-          inset 0 16px 34px -20px rgba(255, 255, 255, 0.10),
-          0 36px 70px -34px rgba(0, 0, 0, 0.85),
-          0 6px 18px -10px rgba(0, 0, 0, 0.55);
-        --lang-surface: rgba(21, 26, 22, 0.52);
-        --glass-border: rgba(255, 255, 255, 0.14);
-        --lang-shadow:
-          inset 0 1px 0 rgba(255, 255, 255, 0.15),
-          0 10px 28px -16px rgba(0, 0, 0, 0.6);
+        --muted: #adb9af;
+        --hairline: #354b3b;
+        --surface: #171e26;
+        --edge: #718bae;
+        --offset: #293952;
+        --blue: #a9c7ff;
+        --blue-soft: #253550;
+        --warm: #dba66c;
+        --warm-soft: #342b23;
       }
     }
 
@@ -106,16 +79,6 @@
       line-height: 1.5;
     }
 
-    /* faint grain — texture over gradients and the fluid alike */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      opacity: 0.5;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.03 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
-    }
-
     /* fluid simulation layer */
     #bg {
       position: fixed;
@@ -126,7 +89,7 @@
       pointer-events: none;
     }
 
-    /* language pill-switch — same glass family */
+    /* Compact square language keys */
     .lang {
       position: fixed;
       top: clamp(14px, 3vw, 26px);
@@ -134,21 +97,18 @@
       z-index: 10;
       display: flex;
       gap: 2px;
-      padding: 3px;
-      border-radius: 999px;
-      background: var(--lang-surface);
-      border: 1px solid var(--glass-border);
-      box-shadow: var(--lang-shadow);
-      -webkit-backdrop-filter: var(--glass-filter);
-      backdrop-filter: var(--glass-filter);
+      padding: 4px;
+      background: var(--surface);
+      border: 2px solid var(--edge);
+      box-shadow: 4px 4px 0 var(--offset);
     }
 
     .lang button {
       min-width: 44px;
-      min-height: 40px;
+      min-height: 44px;
       padding: 8px 14px;
       border: 0;
-      border-radius: 999px;
+      border-radius: 0;
       background: transparent;
       color: var(--muted);
       font: inherit;
@@ -160,8 +120,8 @@
     }
 
     .lang button[aria-pressed="true"] {
-      background: var(--green);
-      color: var(--btn-ink);
+      background: var(--blue-soft);
+      color: var(--blue);
     }
 
     .card {
@@ -172,57 +132,22 @@
       gap: clamp(28px, 5vw, 56px);
       align-items: center;
       padding: clamp(28px, 5vw, 56px);
-      background: var(--glass-tint);
-      border: 1px solid var(--glass-border);  /* replaced by the rim when masks work */
-      border-radius: 24px;
-      box-shadow: var(--glass-shadow);
-      -webkit-backdrop-filter: var(--glass-filter);
-      backdrop-filter: var(--glass-filter);
+      background: var(--surface);
+      border: 2px solid var(--edge);
+      box-shadow: 8px 8px 0 var(--offset);
     }
 
-    /* diagonal sheen wash — under the content, over the backdrop */
-    .card::before {
+    /* Small grid-cut corner marks, never clipping content or keyboard outlines. */
+    .card::before, .card::after {
       content: "";
       position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      background: var(--sheen);
+      width: 12px;
+      height: 12px;
+      background: var(--green);
       pointer-events: none;
     }
-
-    /* 1px gradient rim: bright catch-light top, dim bottom (Fresnel edge) */
-    @supports ((mask-composite: exclude) or (-webkit-mask-composite: xor)) {
-      .card { border-color: transparent; }
-      .card::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        border-radius: inherit;
-        padding: 1px;
-        background: var(--rim);
-        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-        -webkit-mask-composite: xor;
-        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-        mask-composite: exclude;
-        pointer-events: none;
-      }
-    }
-
-    /* no backdrop-filter support → solid surface, contrast preserved */
-    @supports not ((backdrop-filter: blur(4px)) or (-webkit-backdrop-filter: blur(4px))) {
-      .card, .lang {
-        background: #ffffff;
-        border-color: var(--hairline);
-        box-shadow: 0 24px 60px -28px rgba(22, 42, 30, 0.28);
-      }
-      .card::before { display: none; }
-      @media (prefers-color-scheme: dark) {
-        .card, .lang {
-          background: #151a16;
-          box-shadow: 0 24px 60px -28px rgba(0, 0, 0, 0.7);
-        }
-      }
-    }
+    .card::before { top: -2px; left: -2px; box-shadow: 8px 0 0 var(--green), 0 8px 0 var(--green); }
+    .card::after { right: -2px; bottom: -2px; width: 8px; height: 8px; background: var(--warm); }
 
     /* photo column */
     .portrait {
@@ -235,8 +160,11 @@
       display: block;
       width: clamp(150px, 22vw, 216px);
       height: clamp(150px, 22vw, 216px);
-      border-radius: 28px;
+      border-radius: 0;
       object-fit: cover;
+      border: 2px solid var(--edge);
+      padding: 4px;
+      background: var(--surface);
       position: relative;
       z-index: 1;
     }
@@ -247,16 +175,12 @@
       position: absolute;
       inset: 0;
       transform: translate(12px, 12px);
-      border-radius: 28px;
-      border: 2px solid var(--green);
-      opacity: 0.55;
-      transition: transform 0.35s ease;
+      border-radius: 0;
+      border: 2px solid var(--warm);
+      background: var(--warm-soft);
+      clip-path: polygon(0 0, calc(100% - 8px) 0, calc(100% - 8px) 8px, 100% 8px, 100% 100%, 8px 100%, 8px calc(100% - 8px), 0 calc(100% - 8px));
     }
 
-    .portrait:hover::before,
-    .portrait:focus-within::before {
-      transform: translate(6px, 6px);
-    }
 
     /* text column */
     .bio { min-width: 0; }
@@ -277,7 +201,7 @@
       content: "";
       width: 8px;
       height: 8px;
-      border-radius: 50%;
+      flex: none;
       background: var(--green);
       box-shadow: 0 0 0 4px var(--green-soft);
     }
@@ -321,40 +245,44 @@
       align-items: center;
       gap: 10px;
       padding: 12px 22px;
-      border-radius: 12px;
+      border-radius: 0;
+      min-height: 48px;
       font: inherit;
       font-weight: 600;
       text-decoration: none;
-      border: 2px solid transparent;
-      transition: transform 0.15s ease, box-shadow 0.15s ease,
-        border-color 0.15s ease, background-color 0.15s ease;
+      border: 2px solid var(--edge);
+      box-shadow: 4px 4px 0 var(--offset);
     }
 
-    .btn:active { transform: translateY(1px) scale(0.99); }
+
 
     .btn-primary {
       background: var(--green);
       color: var(--btn-ink);
-      box-shadow: 0 10px 24px -12px rgba(39, 174, 96, 0.8);
+      border-color: var(--green-ink);
     }
 
     .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 14px 28px -12px rgba(39, 174, 96, 0.9);
+      background: #35bd6e;
     }
 
     .btn-ghost {
-      border-color: var(--hairline);
-      color: var(--ink);
+      border-color: var(--blue);
+      color: var(--blue);
+      background: var(--blue-soft);
     }
 
     .btn-ghost:hover {
-      border-color: var(--green);
-      color: var(--green-ink);
-      transform: translateY(-2px);
+      border-color: var(--blue);
+      color: var(--blue);
+      background: var(--surface);
     }
 
-    .btn svg { flex: none; }
+    .btn:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--offset); }
+    .lang button:hover { outline: 2px solid var(--blue); outline-offset: -2px; }
+    .lang button:active { background: var(--green-soft); color: var(--ink); }
+    .btn svg { flex: none; shape-rendering: crispEdges; }
+    .btn svg path { stroke-linecap: square; stroke-linejoin: miter; }
 
     /* contacts */
     .contacts {
@@ -362,7 +290,7 @@
       flex-wrap: wrap;
       gap: 6px 22px;
       padding-top: 22px;
-      border-top: 1px solid var(--hairline);
+      border-top: 2px dashed var(--hairline);
       font-size: 0.925rem;
     }
 
@@ -377,9 +305,9 @@
       transition: color 0.15s ease;
     }
 
-    .contacts a:hover { color: var(--green-ink); }
+    .contacts a:hover { color: var(--blue); }
 
-    .contacts svg { opacity: 0.7; }
+    .contacts svg { color: var(--blue); opacity: 0.85; }
 
     .contacts a:hover svg { opacity: 1; }
 
@@ -388,15 +316,7 @@
     button:focus-visible {
       outline: 3px solid var(--green);
       outline-offset: 3px;
-      border-radius: 8px;
-    }
-
-    /* entrance — fast settle so instant screenshots capture content */
-    .card > * { animation: rise 0.22s ease-out both; }
-    .card > *:nth-child(2) { animation-delay: 0.08s; }
-
-    @keyframes rise {
-      from { opacity: 0; transform: translateY(10px); }
+      border-radius: 0;
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -408,7 +328,7 @@
 
     /* mobile: photo on top, card as a column; lang pill owns the top strip */
     @media (max-width: 620px) {
-      body { padding-top: 72px; }
+      body { padding-top: 88px; }
       .card {
         grid-template-columns: 1fr;
         justify-items: stretch;
@@ -416,8 +336,8 @@
         padding: 24px 20px;
       }
       .portrait { order: -1; justify-self: start; }
-      .portrait img { width: 112px; height: 112px; border-radius: 22px; }
-      .portrait::before { border-radius: 22px; transform: translate(8px, 8px); }
+      .portrait img { width: 112px; height: 112px; border-radius: 0; }
+      .portrait::before { border-radius: 0; transform: translate(8px, 8px); }
       .where { margin-bottom: 10px; }
       .role { margin-bottom: 14px; }
       .summary { margin-bottom: 22px; line-height: 1.55; }
@@ -428,7 +348,7 @@
         padding: 14px 20px;
       }
       .contacts { padding-top: 18px; gap: 4px 18px; }
-      .contacts a { padding: 8px 0; }
+      .contacts a { padding: 10px 0; min-height: 44px; }
     }
   </style>
 </head>
@@ -872,41 +792,27 @@ SPLAT_FORCE: 3000
           gl_FragColor = vec4(velocity, 0.0, 1.0);
         }`;
 
-      /* final composite: glow on dark, hue-preserving ink wash on light */
+      /* Pixel-art composite only; fluid physics and DOM keep their original resolution. */
       const displayShader = `
         precision highp float;
         precision highp sampler2D;
-        varying vec2 vUv, vL, vR, vT, vB;
+        varying vec2 vUv;
         uniform sampler2D uTexture;
-        uniform vec2 texelSize;
-        uniform vec3 uBg;
-        uniform vec3 uAccent;
+        uniform vec2 uCssSize;
+        uniform vec3 uBg, uAccent;
         uniform float uDark;
-        uniform float uShade;
-        uniform float uInkDepth;
         void main () {
-          vec3 c = texture2D(uTexture, vUv).rgb;
-          /* cheap surface lighting from the dye gradient */
-          float dx = length(texture2D(uTexture, vR).rgb) -
-                     length(texture2D(uTexture, vL).rgb);
-          float dy = length(texture2D(uTexture, vT).rgb) -
-                     length(texture2D(uTexture, vB).rgb);
-          vec3 n = normalize(vec3(dx, dy, length(texelSize)));
-          float diffuse = clamp(dot(n, vec3(0.0, 0.0, 1.0)) + 0.7, 0.7, 1.15);
-          c *= mix(1.0, diffuse, uShade);
-          /* soft ambient halo from the brand accent */
-          vec2 q = vUv - 0.5;
-          float halo = exp(-dot(q, q) * 3.2);
-          vec3 col;
-          if (uDark > 0.5) {
-            col = uBg + c + uAccent * halo * 0.1;
-          } else {
-            float m = max(c.r, max(c.g, c.b));
-            float lum = clamp(m * 1.7, 0.0, 1.0);
-            vec3 chroma = m > 0.0001 ? c / m : vec3(0.0);
-            col = mix(uBg, chroma * uInkDepth, lum) - uAccent * halo * 0.06;
-          }
-          gl_FragColor = vec4(col, 1.0);
+          /* Screen-space cells stay 7 CSS px (5 on mobile), independent of DPR. */
+          float cell = uCssSize.x <= 620.0 ? 5.0 : 7.0;
+          vec2 uv = (floor(vUv * uCssSize / cell) + 0.5) * cell / uCssSize;
+          vec3 dye = texture2D(uTexture, clamp(uv, 0.0, 1.0)).rgb;
+          float density = max(dye.r, max(dye.g, dye.b));
+          /* A slow shoulder preserves dense streams; faint residue stays background. */
+          float ink = max(density - mix(0.025, 0.012, uDark), 0.0);
+          float coverage = ink / (ink + mix(0.55, 0.24, uDark));
+          float tone = floor(coverage * 8.0 + 0.5) / 8.0;
+          vec3 green = mix(mix(uBg, uAccent, 0.48), uAccent * 0.40, uDark);
+          gl_FragColor = vec4(mix(uBg, green, tone), 1.0);
         }`;
 
       /* ---------- program plumbing ---------- */
@@ -1270,15 +1176,13 @@ SPLAT_FORCE: 3000
       /* ---------- render ---------- */
       function render () {
         displayProgram.bind();
-        gl.uniform2f(displayProgram.uniforms.texelSize,
-          dye.texelSizeX, dye.texelSizeY);
+        gl.uniform2f(displayProgram.uniforms.uCssSize,
+          canvas.clientWidth, canvas.clientHeight);
         gl.uniform1i(displayProgram.uniforms.uTexture, dye.read.attach(0));
         gl.uniform3f(displayProgram.uniforms.uBg, bgColor[0], bgColor[1], bgColor[2]);
         gl.uniform3f(displayProgram.uniforms.uAccent,
           accent[0], accent[1], accent[2]);
         gl.uniform1f(displayProgram.uniforms.uDark, themeDark.matches ? 1 : 0);
-        gl.uniform1f(displayProgram.uniforms.uShade, themeDark.matches ? 1 : 0.35);
-        gl.uniform1f(displayProgram.uniforms.uInkDepth, 0.42);
         blit(null);
       }
 
